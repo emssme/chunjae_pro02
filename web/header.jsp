@@ -44,8 +44,8 @@
                     <ul class="nav justify-content-end">
                         <li class="nav-item"><a href="${path1 }/AdminNoticeList.do" class="nav-link">Admin Notice</a></li>
                         <li class="nav-item"><a href="${path1 }/Login.do" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="/Join.do" class="nav-link">Join</a></li>
-                        <li class="nav-item"><a href="/Contact.do" class="nav-link">Contact US</a></li>
+                        <li class="nav-item"><a href="${path1 }/Join.do" class="nav-link">Join</a></li>
+                        <li class="nav-item"><a href="${path1 }/Contact.do" class="nav-link">Contact US</a></li>
                     </ul>
                 </div>
             </div>

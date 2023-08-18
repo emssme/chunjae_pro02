@@ -17,20 +17,6 @@ public class CustomDAO {
     public List<Custom> getCustomList(){
         List<Custom> cusList = new ArrayList<>();
 
-        DBConnect con = new PostgreCon();
-        conn = con.connect();
-        try {
-            pstmt = conn.prepareStatement(DBConnect.CUSTOM_SELECT_ALL);
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                Custom cuslist = new Custom();
-                
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
         return cusList;
     }
 
@@ -43,6 +29,21 @@ public class CustomDAO {
     public boolean login(String id, String pw){
         boolean pass = false;
 
+        DBConnect con = new PostgreCon();
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.CUSTOM_SELECT_LOG);
+            pstmt.setString(1, id);
+            pstmt.setString(2, pw);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                pass = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
         return pass;
     }
 
